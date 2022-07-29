@@ -1,10 +1,10 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import React, { useState } from "react";
 import "./App.css";
 
 function App() {
   const [charName, setCharName] = useState<string>("");
-  const [charInfo, setCharInfo] = useState<[]>([]);
+  const [charInfo, setCharInfo] = useState<Object[] | null>(null);
 
   const GENSHIN_BASE_API_URL = "https://api.genshin.dev/characters/";
   return (
@@ -20,12 +20,13 @@ function App() {
         />
         <br />
         <button onClick={search}>Search</button>
-        {charInfo === null}(<p>Pokemon not found</p>) : (
-        <div id="char-result">
-          <img src={GENSHIN_BASE_API_URL + charName + "/card"} />
-          <p></p>
-        </div>
-        )
+        {charInfo === null ? (
+          <p>Character not found</p>
+        ) : (
+          <div id="char-result">
+            <img src={GENSHIN_BASE_API_URL + charName + "/card"} />
+          </div>
+        )}
       </div>
     </div>
   );
@@ -39,13 +40,17 @@ function App() {
       .get(GENSHIN_BASE_API_URL + charName?.toLowerCase())
       .then((res) => {
         setCharInfo(res.data);
-        console.log(res.data.affiliation);
       })
       .catch(() => {
-        setCharInfo([]);
+        setCharInfo(null);
       });
 
-    console.log();
+    if (charInfo != null) {
+      for (let key in charInfo) {
+        console.log(key);
+        console.log(charInfo[key]);
+      }
+    }
   }
 }
 
