@@ -161,7 +161,7 @@ function App() {
         return process.env.PUBLIC_URL + "/images/Element_Geo.png";
       case "Hydro":
         return process.env.PUBLIC_URL + "/images/Element_Hydro.png";
-      case "Cryo":
+      case "Pyro":
         return process.env.PUBLIC_URL + "/images/Element_Pyro.png";
     }
   }
