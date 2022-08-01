@@ -1,0 +1,48 @@
+body {
+  background-color: #25294a;
+  color: #efefef;
+}
+.main {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+.not-found {
+  margin-top: 10%;
+}
+.char-result {
+  height: 40vh;
+  width: 50vw;
+  margin: auto;
+  text-align: start;
+  margin-top: 5vh;
+}
+
+.char-result img {
+  object-fit: fill;
+  height: auto;
+  max-width: 100%;
+}
+.rating {
+  display: flex;
+}
+.char-items {
+  color: #efefef;
+}
+
+.char-items h1 {
+  margin-bottom: 0.2rem;
+}
+
+.constellation {
+  margin-top: 0;
+  color: #cbd5e0;
+}
+
+.char-info {
+  border-spacing: 5px 1rem;
+}
+
+.char-info-header {
+  color: #cbd5e0;
+}
