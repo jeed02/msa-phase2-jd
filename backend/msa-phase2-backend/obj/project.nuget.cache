@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "ujYE9WNd7+zr2yPo5BgCdOMXUX3MkFvow7ANDeyr4XWGe2O7tkVR5nJZzBkEl3J3njD7SyIljB+rU9K6RyBF8g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\JD\\OneDrive\\Documents\\Web Dev\\msa-phase2-jd\\backend\\msa-phase2-backend\\msa-phase2-backend.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\JD\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\JD\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\JD\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\JD\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\JD\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\JD\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
