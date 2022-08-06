@@ -1,7 +1,11 @@
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+builder.Services.AddHttpClient("genshin", configureClient: client =>
+{
+    client.BaseAddress = new Uri("https://api.genshin.dev/characters");
+});
+builder.Services.AddMvc();  
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

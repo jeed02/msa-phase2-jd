@@ -8,7 +8,25 @@ namespace backend.Controllers;
 [Route("[controller]")]
 public class CharacterController : ControllerBase
 {
-	public CharacterController() { }
+	private readonly HttpClient _client;
+
+	public CharacterController(IHttpClientFactory clientFactory) {
+		if (clientFactory is null)
+		{
+			throw new ArgumentNullException(nameof(clientFactory));
+		}
+		_client = clientFactory.CreateClient("genshin");
+	}
+
+	[HttpGet]
+	[Route("raw")]
+	[ProducesResponseType(200)]
+	public async Task<IActionResult> GetAllCharacters()
+	{
+		var res = await _client.GetAsync("");
+		var content = await res.Content.ReadAsStringAsync();
+		return Ok(content);
+	}
 
 	//GET all
 	[HttpGet]

@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Controllers",
     "\\Models",
-    "\\Services"
+    "\\Properties"
   ],
   "SelectedNode": "\\backend.csproj",
   "PreviewInSolutionExplorer": false
