@@ -3,12 +3,12 @@ namespace backend.Models;
 
 public class Character
 {
-	public string Name { get; set; }
-	public string? Vision { get; set; }
-	public string? Weapon { get; set; }	
-	public string? Constellation { get; set; }
-	public string? Birthday { get; set; }
-	public int Rarity { get; set; }	
+	public string name { get; set; }
+	public string? vision { get; set; }
+	public string? weapon { get; set; }	
+	public string? constellation { get; set; }
+	public string? birthday { get; set; }
+	public int rarity { get; set; }	
 
 
 }

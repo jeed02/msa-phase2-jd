@@ -1,6 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using Microsoft.AspNetCore.Mvc;
 using backend.Models;
 using backend.Services;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.Diagnostics;
+
 
 namespace backend.Controllers;
 
@@ -25,7 +30,18 @@ public class CharacterController : ControllerBase
 	{
 		var res = await _client.GetAsync("");
 		var content = await res.Content.ReadAsStringAsync();
-		return Ok(content);
+		string[] allCharacters = JsonSerializer.Deserialize<string[]>(content);
+
+		foreach(string n in allCharacters)
+        {
+			var c = await _client.GetAsync("/characters/" + n);
+			var charInfo = await c.Content.ReadAsStringAsync();
+			Character character = JsonSerializer.Deserialize<Character>(charInfo);
+			CharacterService.Add(character);
+		}
+
+
+		return Ok(allCharacters);
 	}
 
 	//GET all
@@ -57,7 +73,7 @@ public class CharacterController : ControllerBase
 	[HttpPut("{name}")]
 	public IActionResult Update(string name, Character c)
 	{
-		if (name != c.Name)
+		if (name != c.name)
 			return BadRequest();
 
 		var existingCharacter = CharacterService.Get(name);

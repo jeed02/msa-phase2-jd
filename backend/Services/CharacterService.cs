@@ -13,7 +13,7 @@ public static class CharacterService
 
 	public static List<Character> GetAll() => Characters;
 
-	public static Character? Get(string name) => Characters.FirstOrDefault(c => c.Name == name);
+	public static Character? Get(string name) => Characters.FirstOrDefault(c => c.name == name);
 
     public static void Add(Character c)
     {
@@ -31,7 +31,7 @@ public static class CharacterService
 
     public static void Update(Character c)
     {
-        var index = Characters.FindIndex(p => p.Name == c.Name);
+        var index = Characters.FindIndex(p => p.name == c.name);
         if (index == -1)
             return;
 
