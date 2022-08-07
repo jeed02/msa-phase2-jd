@@ -14,17 +14,20 @@ namespace backend.Controllers;
 public class CharacterController : ControllerBase
 {
 	private readonly HttpClient _client;
+	private readonly ICharacterRepo _repository;
 
-	public CharacterController(IHttpClientFactory clientFactory) {
+	public CharacterController(IHttpClientFactory clientFactory, ICharacterRepo repository) {
 		if (clientFactory is null)
 		{
 			throw new ArgumentNullException(nameof(clientFactory));
 		}
 		_client = clientFactory.CreateClient("genshin");
+		_repository = repository;
 	}
 
+	// GET all genshin characters from API and store into database
 	[HttpGet]
-	[Route("raw")]
+	[Route("GetAPI")]
 	[ProducesResponseType(200)]
 	public async Task<IActionResult> GetAllCharacters()
 	{
@@ -37,7 +40,7 @@ public class CharacterController : ControllerBase
 			var c = await _client.GetAsync("/characters/" + n);
 			var charInfo = await c.Content.ReadAsStringAsync();
 			Character character = JsonSerializer.Deserialize<Character>(charInfo);
-			CharacterService.Add(character);
+			_repository.AddCharacter(character);
 		}
 
 
@@ -46,14 +49,18 @@ public class CharacterController : ControllerBase
 
 	//GET all
 	[HttpGet]
-	public ActionResult<List<Character>> GetAll() =>
-		CharacterService.GetAll();
+	public ActionResult<IEnumerable<Character>> GetAll()
+    {
+		IEnumerable<Character> characters = _repository.GetAllCharacters();
+		return Ok(characters);
+	}
+		
 
     //GET by name
     [HttpGet("{name}")]
 	public ActionResult<Character> Get(string name)
     {
-		var character = CharacterService.Get(name);
+		Character character = _repository.GetCharacter(name);
 
 		if (character == null)
 			return NotFound();
@@ -65,8 +72,8 @@ public class CharacterController : ControllerBase
 	[HttpPost]
 	public IActionResult Create(Character c)
 	{
-		CharacterService.Add(c);
-		return CreatedAtAction(nameof(Create), c);
+		Character AddedCharacter = _repository.AddCharacter(c);
+		return CreatedAtAction(nameof(Create), AddedCharacter);
 	}
 
 	//PUT
@@ -76,11 +83,11 @@ public class CharacterController : ControllerBase
 		if (name != c.name)
 			return BadRequest();
 
-		var existingCharacter = CharacterService.Get(name);
+		Character existingCharacter = _repository.GetCharacter(name);
 		if (existingCharacter is null)
 			return NotFound();
 
-		CharacterService.Update(c);
+		_repository.UpdateCharacter(c);
 
 		return NoContent();
 	}
@@ -89,12 +96,12 @@ public class CharacterController : ControllerBase
 	[HttpDelete("{name}")]
 	public IActionResult Delete(string name)
 	{
-		var character = CharacterService.Get(name);
+		Character existingCharacter = _repository.GetCharacter(name);
 
-		if (character is null)
+		if (existingCharacter is null)
 			return NotFound();
 
-		CharacterService.Delete(name);
+		_repository.DeleteCharacter(existingCharacter);
 
 		return NoContent();
 	}
