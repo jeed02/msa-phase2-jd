@@ -1,40 +1,64 @@
 ﻿using System;
 using backend.Models;
-namespace backend.Services;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
 
-public static class CharacterService
+namespace backend.Services
 {
-	static List<Character> Characters { get; }
-
-	static CharacterService()
-	{
-		Characters = new List<Character> {};
-	}
-
-	public static List<Character> GetAll() => Characters;
-
-	public static Character? Get(string name) => Characters.FirstOrDefault(c => c.name == name);
-
-    public static void Add(Character c)
+    public class CharacterService : ICharacterRepo
     {
-        Characters.Add(c);
+        private readonly CharacterDb _dbCharacter;
+        
+        public CharacterService(CharacterDb characterDb) { _dbCharacter = characterDb; }
+
+        public Character AddCharacter(Character character)
+        {
+            _dbCharacter.Add(character);
+            _dbCharacter.SaveChanges();
+            return character;
+        }
+
+        public void DeleteCharacter(Character character)
+        {
+            Character c = _dbCharacter.Characters.FirstOrDefault(e => e.name == character.name);
+            if (c != null)
+            {
+                _dbCharacter.Characters.Remove(c);
+                _dbCharacter.SaveChanges();
+            }
+                
+        }
+
+        public IEnumerable<Character> GetAllCharacters()
+        {
+            IEnumerable<Character> characters = _dbCharacter.Characters.ToList<Character>();
+            return characters;
+        }
+
+        public Character GetCharacter(string name)
+        {
+            Character c = _dbCharacter.Characters.FirstOrDefault(e => e.name == name);
+            return c;
+        }
+
+        public void SaveChanges()
+        {
+            _dbCharacter.SaveChanges();
+        }
+
+        public void UpdateCharacter(Character character)
+        {
+            Character c = _dbCharacter.Characters.FirstOrDefault(e => e.name == character.name);
+            if(c != null)
+            {
+                c = character;
+                _dbCharacter.SaveChanges();
+            }
+            
+        }
     }
 
-    public static void Delete(string name)
-    {
-        var c = Get(name);
-        if (c is null)
-            return;
 
-        Characters.Remove(c);
-    }
-
-    public static void Update(Character c)
-    {
-        var index = Characters.FindIndex(p => p.name == c.name);
-        if (index == -1)
-            return;
-
-        Characters[index] = c;
-    }
 }
+
