@@ -115,4 +115,51 @@ public class CharacterController : ControllerBase
 
 	}
 
+    [HttpGet("GetHTML")]
+	public ContentResult GetHTML()
+    {
+		List<Character> team = _repository.GetTeam();
+		var html = System.IO.File.ReadAllText(@"./HTML/RandomTeam.html");
+
+		for(int i = 1; i<5; i++)
+        {
+			string name = team[i - 1].name.ToLower();
+			if (name == "raiden shogun")
+            {
+				name = name.Split(" ")[0];
+            }
+            else
+            {
+				if (name.Split(" ").Length > 1 && name != "hu tao" && name != "arataki itto" && name != "yun jin" && name!= "yae miko")
+				{
+					name = name.Split(" ")[1];
+				}
+			}
+			
+
+			string imgName = name.Replace(" ", "-");
+			if (name == "traveler")
+            {
+				imgName = "traveler-anemo";
+            }
+
+			
+			string imgString = "<img src=https://api.genshin.dev/characters/" + imgName + "/card style='height: 20vh'/>";
+			if (name == "yae miko")
+			{
+				imgString = "<img src=https://api.genshin.dev/characters/" + imgName + "/gacha-card style='height: 20vh'/>";
+
+			}
+			string nameH1 = "<h1>" + team[i - 1].name + "</h1>";
+			string vision = "<p>Vision:" + team[i - 1].vision + "</p>";
+			string weapon = "<p>Weapon:" + team[i - 1].weapon + "</p>";
+			string rarity = "<p>Rarity:" + team[i - 1].rarity + "</p>";
+			string constellation = "<p>Constellation:" + team[i - 1].constellation + "</p>";
+			string itemHTML = "<div>" + nameH1 +imgString+ vision + rarity + weapon + constellation + "</div>";
+			html = html.Replace("{{char" + i + "}}", itemHTML);
+        }
+
+		return base.Content(html, "text/html");
+	}
+
 }
