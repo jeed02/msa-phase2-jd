@@ -1,11 +1,10 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
 using backend.Models;
-using backend.Services;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Diagnostics;
-
+using backend.Data;
 
 namespace backend.Controllers;
 
@@ -104,6 +103,16 @@ public class CharacterController : ControllerBase
 		_repository.DeleteCharacter(existingCharacter);
 
 		return NoContent();
+	}
+
+    [HttpGet]
+    [Route("GetTeam")]
+    [ProducesResponseType(200)]
+	public ActionResult<IEnumerable<Character>> GetTeam()
+    {
+		IEnumerable<Character> team = _repository.GetTeam();
+		return Ok(team);
+
 	}
 
 }

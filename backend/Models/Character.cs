@@ -5,7 +5,7 @@ namespace backend.Models
 {
 	public class Character
 	{
-        [Key]
+		public int Id { get; set; }
 		public string name { get; set; }
 		public string? vision { get; set; }
 		public string? weapon { get; set; }
@@ -15,10 +15,5 @@ namespace backend.Models
 
 	}
 
-	public class CharacterDb : DbContext
-	{
-		public CharacterDb(DbContextOptions options) : base(options) { }
-		public DbSet<Character> Characters { get; set; } = null!;
-	}
-
+	
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using backend.Models;
-namespace backend.Services
+
+namespace backend.Data
 {
     public interface ICharacterRepo
     {
@@ -10,5 +11,6 @@ namespace backend.Services
         void UpdateCharacter(Character character);
         void DeleteCharacter(Character character);
         void SaveChanges();
+        IEnumerable<Character> GetTeam();
     }
 }

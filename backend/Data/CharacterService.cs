@@ -4,12 +4,12 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace backend.Services
+namespace backend.Data
 {
     public class CharacterService : ICharacterRepo
     {
         private readonly CharacterDb _dbCharacter;
-        
+
         public CharacterService(CharacterDb characterDb) { _dbCharacter = characterDb; }
 
         public Character AddCharacter(Character character)
@@ -21,24 +21,24 @@ namespace backend.Services
 
         public void DeleteCharacter(Character character)
         {
-            Character c = _dbCharacter.Characters.FirstOrDefault(e => e.name == character.name);
+            Character c = _dbCharacter.Characters.FirstOrDefault(e => e.name.ToLower() == character.name.ToLower());
             if (c != null)
             {
                 _dbCharacter.Characters.Remove(c);
                 _dbCharacter.SaveChanges();
             }
-                
+
         }
 
         public IEnumerable<Character> GetAllCharacters()
         {
-            IEnumerable<Character> characters = _dbCharacter.Characters.ToList<Character>();
+            IEnumerable<Character> characters = _dbCharacter.Characters.ToList();
             return characters;
         }
 
         public Character GetCharacter(string name)
         {
-            Character c = _dbCharacter.Characters.FirstOrDefault(e => e.name == name);
+            Character c = _dbCharacter.Characters.FirstOrDefault(e => e.name.ToLower() == name.ToLower());
             return c;
         }
 
@@ -49,13 +49,21 @@ namespace backend.Services
 
         public void UpdateCharacter(Character character)
         {
-            Character c = _dbCharacter.Characters.FirstOrDefault(e => e.name == character.name);
-            if(c != null)
+            Character c = _dbCharacter.Characters.FirstOrDefault(e => e.name.ToLower() == character.name.ToLower());
+            if (c != null)
             {
                 c = character;
                 _dbCharacter.SaveChanges();
             }
-            
+
+        }
+
+        public IEnumerable<Character> GetTeam()
+        {
+            Random rand = new Random();
+            int toSkip = rand.Next(1, _dbCharacter.Characters.Count());
+            IEnumerable<Character> team = _dbCharacter.Characters.Skip(toSkip).Take(4).ToList();
+            return team;
         }
     }
 

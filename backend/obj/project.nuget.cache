@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "uyebNmNkLJ4fxp9AG535w7ubGUge8fZ0wOmanFj1np1vKR/FtBpHXv13UYJDvqBqagiq0dBts5GZmOH4Xup7jg==",
+  "dgSpecHash": "Q6WF9l6JPNiE4GkIKkWwsJ9eudyotco5PjkfSshCbUuGJXmV2TKAqWufzc8bJLFMxPt6DiXm513TlFub+hwVgw==",
   "success": true,
   "projectFilePath": "C:\\Users\\JD\\OneDrive\\Documents\\Web Dev\\msa-phase2-jd\\backend\\backend.csproj",
   "expectedPackageFiles": [
@@ -14,6 +14,7 @@
     "C:\\Users\\JD\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\6.0.7\\microsoft.entityframeworkcore.relational.6.0.7.nupkg.sha512",
     "C:\\Users\\JD\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite\\6.0.7\\microsoft.entityframeworkcore.sqlite.6.0.7.nupkg.sha512",
     "C:\\Users\\JD\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite.core\\6.0.7\\microsoft.entityframeworkcore.sqlite.core.6.0.7.nupkg.sha512",
+    "C:\\Users\\JD\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\6.0.7\\microsoft.entityframeworkcore.tools.6.0.7.nupkg.sha512",
     "C:\\Users\\JD\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\JD\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\6.0.0\\microsoft.extensions.caching.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\JD\\.nuget\\packages\\microsoft.extensions.caching.memory\\6.0.1\\microsoft.extensions.caching.memory.6.0.1.nupkg.sha512",
