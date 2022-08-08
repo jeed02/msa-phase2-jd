@@ -62,10 +62,16 @@ namespace backend.Data
         {
             Random rand = new Random();
             List<Character> team = new List<Character>();
+            int[] existingRandInt = new int[4];
             
             for(int i=0; i<4; i++)
             {
                 int toSkip = rand.Next(1, _dbCharacter.Characters.Count());
+                while (existingRandInt.Contains(toSkip))
+                {
+                    toSkip = rand.Next(1, _dbCharacter.Characters.Count());
+                }
+                existingRandInt[i] = toSkip;
                 Character c = _dbCharacter.Characters.Skip(toSkip).Take(1).First();
                 team.Add(c);
             }
