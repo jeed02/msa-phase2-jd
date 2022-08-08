@@ -108,9 +108,9 @@ public class CharacterController : ControllerBase
     [HttpGet]
     [Route("GetTeam")]
     [ProducesResponseType(200)]
-	public ActionResult<IEnumerable<Character>> GetTeam()
+	public ActionResult<List<Character>> GetTeam()
     {
-		IEnumerable<Character> team = _repository.GetTeam();
+		List<Character> team = _repository.GetTeam();
 		return Ok(team);
 
 	}

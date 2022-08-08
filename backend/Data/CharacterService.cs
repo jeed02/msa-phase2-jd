@@ -58,11 +58,18 @@ namespace backend.Data
 
         }
 
-        public IEnumerable<Character> GetTeam()
+        public List<Character> GetTeam()
         {
             Random rand = new Random();
-            int toSkip = rand.Next(1, _dbCharacter.Characters.Count());
-            IEnumerable<Character> team = _dbCharacter.Characters.Skip(toSkip).Take(4).ToList();
+            List<Character> team = new List<Character>();
+            
+            for(int i=0; i<4; i++)
+            {
+                int toSkip = rand.Next(1, _dbCharacter.Characters.Count());
+                Character c = _dbCharacter.Characters.Skip(toSkip).Take(1).First();
+                team.Add(c);
+            }
+            
             return team;
         }
     }

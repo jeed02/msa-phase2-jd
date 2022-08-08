@@ -11,6 +11,6 @@ namespace backend.Data
         void UpdateCharacter(Character character);
         void DeleteCharacter(Character character);
         void SaveChanges();
-        IEnumerable<Character> GetTeam();
+        List<Character> GetTeam();
     }
 }
