@@ -14,15 +14,20 @@ namespace backend.Data
 
         public Character AddCharacter(Character character)
         {
-            _dbCharacter.Add(character);
-            _dbCharacter.SaveChanges();
+            Character c = _dbCharacter.Characters.FirstOrDefault(e => e.name.ToLower() == character.name.ToLower());
+            if (c == null)
+            {
+                _dbCharacter.Add(character);
+                _dbCharacter.SaveChanges();
+            }
+            
             return character;
         }
 
         public void DeleteCharacter(Character character)
         {
             Character c = _dbCharacter.Characters.FirstOrDefault(e => e.name.ToLower() == character.name.ToLower());
-            if (c != null)
+            if (c == null)
             {
                 _dbCharacter.Characters.Remove(c);
                 _dbCharacter.SaveChanges();
