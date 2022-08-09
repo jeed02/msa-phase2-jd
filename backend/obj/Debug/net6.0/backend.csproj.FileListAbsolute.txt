@@ -54,3 +54,4 @@ C:\Users\JD\OneDrive\Documents\Web Dev\msa-phase2-jd\backend\bin\Debug\net6.0\ru
 C:\Users\JD\OneDrive\Documents\Web Dev\msa-phase2-jd\backend\bin\Debug\net6.0\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Users\JD\OneDrive\Documents\Web Dev\msa-phase2-jd\backend\bin\Debug\net6.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\JD\OneDrive\Documents\Web Dev\msa-phase2-jd\backend\bin\Debug\net6.0\runtimes\win-x86\native\e_sqlite3.dll
+C:\Users\JD\OneDrive\Documents\Web Dev\msa-phase2-jd\backend\bin\Debug\net6.0\testEnvironments.json
