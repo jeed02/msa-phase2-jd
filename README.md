@@ -19,7 +19,7 @@ With this API, you can get the data of characters from the video game Genshin Im
       
 # MSA Phase 2 - Backend
   # Genshin Team Randomizer API
-This is an API that allows a user to generate a random team of Genshin Impact characters. In Genshin, a team comprises of 4 members. This API calls the [Genshin Impact API](https://github.com/genshindev/api) to get data for each character. To see the final result, you must call `https://localhost:{PORT}/Character/GetHTML`. This returns an HTML with your randomised team on it! Below is an example:  
+This is an API that allows a user to generate a random team of Genshin Impact characters. In Genshin, a team comprises of 4 members. This API calls the [Genshin Impact API](https://github.com/genshindev/api) to get data for each character. To see the final result, you must call `https://localhost:{PORT}/Character/GetHTML`. This returns an HTML page with your randomised team on it! Below is an example:  
 ![EndProduct](BackendProduct.jpg)
 ## Section One  
 To "demonstrate the differences between starting the project with one file over another", when running the project with `dotnet run --environment Development`, the API uses an InMemory database. When running the project with `dotnet run --environment Production`, the API uses an SQLite database.
