@@ -17,6 +17,8 @@ namespace UnitTesting
         {
             var mockFactory = new Mock<IHttpClientFactory>();
             var mockRepo = new Mock<ICharacterRepo>();
+
+            //Initilize mock values
             Character char1 = new Character() { Id = 154, name = "Beidou", vision = "Electro", weapon = "Claymore", constellation = "Victor Mare", birthday = "0000-02-14", rarity = 4 };
             Character char2 = new Character() { Id = 178, name = "Kujou Sara", vision = "Electro", weapon = "Bow", constellation = "Flabellum", birthday = "0000-07-14", rarity = 4 };
             Character char3 = new Character() { Id = 163, name = "Hu Tao", vision = "Pyro", weapon = "Polearm", constellation = "Papilio Charontis", birthday = "0000-07-15", rarity = 5 };
@@ -24,6 +26,8 @@ namespace UnitTesting
             Character char5 = new Character() { Id = 195, name = "Yun Jin", vision = "Geo", weapon = "Polearm", constellation = "Opera Grandis", birthday = "0000-05-21", rarity = 4 };
 
             IList<Character> mockCharacters = new List<Character> { char1, char2, char3, char4, char5 };
+
+            //Initialize mock random team
             List<Character> team = new List<Character>();
             Random rand = new Random();
             int[] existingRandInt = new int[4];
