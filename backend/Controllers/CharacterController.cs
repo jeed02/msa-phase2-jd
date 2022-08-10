@@ -48,10 +48,10 @@ public class CharacterController : ControllerBase
 
 	//GET all
 	[HttpGet]
-	public ActionResult<IEnumerable<Character>> GetAll()
+	public IEnumerable<Character> GetAll()
     {
 		IEnumerable<Character> characters = _repository.GetAllCharacters();
-		return Ok(characters);
+		return characters;
 	}
 		
 
@@ -64,7 +64,7 @@ public class CharacterController : ControllerBase
 		if (character == null)
 			return NotFound();
 
-		return character;
+		return Ok(character);
     }
 
 	//POST
