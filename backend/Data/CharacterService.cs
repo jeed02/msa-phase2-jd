@@ -27,7 +27,7 @@ namespace backend.Data
         public void DeleteCharacter(Character character)
         {
             Character c = _dbCharacter.Characters.FirstOrDefault(e => e.name.ToLower() == character.name.ToLower());
-            if (c == null)
+            if (c != null)
             {
                 _dbCharacter.Characters.Remove(c);
                 _dbCharacter.SaveChanges();

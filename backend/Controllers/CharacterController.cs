@@ -108,10 +108,10 @@ public class CharacterController : ControllerBase
     [HttpGet]
     [Route("GetTeam")]
     [ProducesResponseType(200)]
-	public ActionResult<List<Character>> GetTeam()
+	public List<Character> GetTeam()
     {
 		List<Character> team = _repository.GetTeam();
-		return Ok(team);
+		return team;
 
 	}
 
