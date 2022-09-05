@@ -5285,11 +5285,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\JD\\OneDrive\\Documents\\Web Dev\\msa-phase2-jd\\UnitTesting\\UnitTesting.csproj",
+      "projectUniqueName": "C:\\Users\\JD\\Documents\\MSA\\msa-phase2-jd\\UnitTesting\\UnitTesting.csproj",
       "projectName": "UnitTesting",
-      "projectPath": "C:\\Users\\JD\\OneDrive\\Documents\\Web Dev\\msa-phase2-jd\\UnitTesting\\UnitTesting.csproj",
+      "projectPath": "C:\\Users\\JD\\Documents\\MSA\\msa-phase2-jd\\UnitTesting\\UnitTesting.csproj",
       "packagesPath": "C:\\Users\\JD\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\JD\\OneDrive\\Documents\\Web Dev\\msa-phase2-jd\\UnitTesting\\obj\\",
+      "outputPath": "C:\\Users\\JD\\Documents\\MSA\\msa-phase2-jd\\UnitTesting\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\JD\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5306,8 +5306,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\JD\\OneDrive\\Documents\\Web Dev\\msa-phase2-jd\\backend\\backend.csproj": {
-              "projectPath": "C:\\Users\\JD\\OneDrive\\Documents\\Web Dev\\msa-phase2-jd\\backend\\backend.csproj"
+            "C:\\Users\\JD\\Documents\\MSA\\msa-phase2-jd\\backend\\backend.csproj": {
+              "projectPath": "C:\\Users\\JD\\Documents\\MSA\\msa-phase2-jd\\backend\\backend.csproj"
             }
           }
         }

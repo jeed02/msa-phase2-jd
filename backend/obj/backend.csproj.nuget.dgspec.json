@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\JD\\OneDrive\\Documents\\Web Dev\\msa-phase2-jd\\backend\\backend.csproj": {}
+    "C:\\Users\\JD\\Documents\\MSA\\msa-phase2-jd\\backend\\backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\JD\\OneDrive\\Documents\\Web Dev\\msa-phase2-jd\\backend\\backend.csproj": {
+    "C:\\Users\\JD\\Documents\\MSA\\msa-phase2-jd\\backend\\backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JD\\OneDrive\\Documents\\Web Dev\\msa-phase2-jd\\backend\\backend.csproj",
+        "projectUniqueName": "C:\\Users\\JD\\Documents\\MSA\\msa-phase2-jd\\backend\\backend.csproj",
         "projectName": "backend",
-        "projectPath": "C:\\Users\\JD\\OneDrive\\Documents\\Web Dev\\msa-phase2-jd\\backend\\backend.csproj",
+        "projectPath": "C:\\Users\\JD\\Documents\\MSA\\msa-phase2-jd\\backend\\backend.csproj",
         "packagesPath": "C:\\Users\\JD\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JD\\OneDrive\\Documents\\Web Dev\\msa-phase2-jd\\backend\\obj\\",
+        "outputPath": "C:\\Users\\JD\\Documents\\MSA\\msa-phase2-jd\\backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\JD\\AppData\\Roaming\\NuGet\\NuGet.Config",
